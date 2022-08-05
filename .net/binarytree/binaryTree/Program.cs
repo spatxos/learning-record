@@ -10,8 +10,8 @@ namespace binaryTree
     {
         static void Main(string[] args)
         {
-            int[] array = { 6, 7,1, 2,  5,  8, 9,3, 4
-                          ,10, 18, 19,11, 12, 15, 16, 17, 13, 14};
+            int[] array = { 6, 7, 1, 2, 5, 8, 9, 3, 4, 10, 18, 19, 11, 12, 15, 16, 17, 13, 14 };
+            //int[] array = { 5, 7, 4, 2, 3 };
             if (array.Length > 0)
             {
                 #region 二叉树
@@ -47,8 +47,8 @@ namespace binaryTree
                     tree.InOrder(tree.root);
                     Console.WriteLine();
                     tree.PostOrder(tree.root);
-                    //Console.WriteLine();
-                    //tree.Remove(ref tree.root, 8);
+                    Console.WriteLine();
+                    tree.Remove(ref tree.root, 8);
                     //Console.WriteLine();
                     //tree.PreOrder(tree.root);
                     //Console.WriteLine();
@@ -58,6 +58,7 @@ namespace binaryTree
                     //tree.PreOrder(tree.root);
                     //Console.WriteLine();
                     //tree.IniOrder(tree.root);
+                    tree.PrintTree(tree.root, 0);
                 }
                 #endregion
             }

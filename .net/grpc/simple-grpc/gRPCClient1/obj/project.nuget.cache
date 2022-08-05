@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "dgSpecHash": "qrVo458YlWHKajhLCPhsWWYjAPTfytdYC/ARpfOr+CbfvL3bfA/NPmT3asoRR2pMxq1td2m2IySaktlAlVk+bQ==",
+  "success": false,
+  "projectFilePath": "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\gRPCClient1\\GrpcClient1.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "未能从远程源“https://api.nuget.org/v3-flatcontainer/grpc.net.client/index.json”检索有关“Grpc.Net.Client”的信息。",
+      "libraryId": "Grpc.Net.Client"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "未能从远程源“https://api.nuget.org/v3-flatcontainer/grpc.aspnetcore/index.json”检索有关“Grpc.AspNetCore”的信息。",
+      "libraryId": "Grpc.AspNetCore"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "未能从远程源“https://api.nuget.org/v3-flatcontainer/google.protobuf/index.json”检索有关“Google.Protobuf”的信息。",
+      "libraryId": "Google.Protobuf"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "未能从远程源“https://api.nuget.org/v3-flatcontainer/microsoft.visualstudio.azure.containers.tools.targets/index.json”检索有关“Microsoft.VisualStudio.Azure.Containers.Tools.Targets”的信息。",
+      "libraryId": "Microsoft.VisualStudio.Azure.Containers.Tools.Targets"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "未能从远程源“https://api.nuget.org/v3-flatcontainer/grpc.tools/index.json”检索有关“Grpc.Tools”的信息。",
+      "libraryId": "Grpc.Tools"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = GrpcService1
+build_property.ProjectDir = D:\github\learning-record\.net\grpc\simple-grpc\GrpcService1\

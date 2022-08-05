@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Learn\\NetCore\\gRPC\\gRPCClient1\\GrpcClient1.csproj": {}
+    "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\gRPCClient1\\GrpcClient1.csproj": {}
   },
   "projects": {
-    "D:\\Learn\\NetCore\\gRPC\\gRPCClient1\\GrpcClient1.csproj": {
+    "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\gRPCClient1\\GrpcClient1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Learn\\NetCore\\gRPC\\gRPCClient1\\GrpcClient1.csproj",
+        "projectUniqueName": "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\gRPCClient1\\GrpcClient1.csproj",
         "projectName": "GrpcClient1",
-        "projectPath": "D:\\Learn\\NetCore\\gRPC\\gRPCClient1\\GrpcClient1.csproj",
+        "projectPath": "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\gRPCClient1\\GrpcClient1.csproj",
         "packagesPath": "C:\\Users\\wangp\\.nuget\\packages\\",
-        "outputPath": "D:\\Learn\\NetCore\\gRPC\\gRPCClient1\\obj\\",
+        "outputPath": "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\gRPCClient1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\wangp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26,9 +26,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Learn\\NetCore\\gRPC\\GrpcService1\\GrpcService1.csproj": {
-                "projectPath": "D:\\Learn\\NetCore\\gRPC\\GrpcService1\\GrpcService1.csproj"
+              "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\GrpcService1\\GrpcService1.csproj": {
+                "projectPath": "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\GrpcService1\\GrpcService1.csproj"
               }
             }
           }
@@ -41,6 +42,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Google.Protobuf": {
               "target": "Package",
@@ -63,30 +65,34 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.28, 3.1.28]"
+            }
+          ],
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Learn\\NetCore\\gRPC\\GrpcService1\\GrpcService1.csproj": {
+    "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\GrpcService1\\GrpcService1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Learn\\NetCore\\gRPC\\GrpcService1\\GrpcService1.csproj",
+        "projectUniqueName": "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\GrpcService1\\GrpcService1.csproj",
         "projectName": "GrpcService1",
-        "projectPath": "D:\\Learn\\NetCore\\gRPC\\GrpcService1\\GrpcService1.csproj",
+        "projectPath": "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\GrpcService1\\GrpcService1.csproj",
         "packagesPath": "C:\\Users\\wangp\\.nuget\\packages\\",
-        "outputPath": "D:\\Learn\\NetCore\\gRPC\\GrpcService1\\obj\\",
+        "outputPath": "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\GrpcService1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\wangp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -101,6 +107,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -112,6 +119,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Grpc.AspNetCore": {
               "target": "Package",
@@ -132,10 +140,17 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.28, 3.1.28]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -144,7 +159,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "aEPcNoDnd1lQ3tZ9RMvntU49dXVSqcaWJ8LMzrsJUYd5yxe6y+RqxgipPEgF6Dc2W4agm6LD0wNsZGySobVRhQ==",
+  "success": false,
+  "projectFilePath": "D:\\github\\learning-record\\.net\\grpc\\simple-grpc\\GrpcService1\\GrpcService1.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "未能从远程源“https://api.nuget.org/v3-flatcontainer/grpc.aspnetcore/index.json”检索有关“Grpc.AspNetCore”的信息。",
+      "libraryId": "Grpc.AspNetCore"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "未能从远程源“https://api.nuget.org/v3-flatcontainer/microsoft.visualstudio.azure.containers.tools.targets/index.json”检索有关“Microsoft.VisualStudio.Azure.Containers.Tools.Targets”的信息。",
+      "libraryId": "Microsoft.VisualStudio.Azure.Containers.Tools.Targets"
+    }
+  ]
+}
