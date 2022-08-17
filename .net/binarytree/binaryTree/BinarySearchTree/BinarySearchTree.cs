@@ -6,14 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace binaryTree
+namespace binaryTree.BinarySearchTree
 {
-    public class MySearchTree<T> where T : struct, IComparable<T>
+    public class BinarySearchTree<T> where T : struct, IComparable<T>
     {
 
         public BinaryNode<T> root;
 
-        public MySearchTree()
+        public BinarySearchTree()
         {
             root = null;
         }
@@ -190,7 +190,7 @@ namespace binaryTree
             }
             else
             {
-                tree = (tree.left != null) ? tree.left : tree.right;
+                tree = tree.left != null ? tree.left : tree.right;
             }
             return tree;
 
