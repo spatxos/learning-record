@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcClient1", "gRPCClient1\GrpcClient1.csproj", "{D03A59FD-448C-482B-93EE-60735449D355}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcService1", "GrpcService1\GrpcService1.csproj", "{D45B382B-65BC-40E7-9E5E-877182939909}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Protos", "Protos", "{7153C2D9-7F0E-4CF3-8020-2D293749BD22}"
+	ProjectSection(SolutionItems) = preProject
+		Protos\greet.proto = Protos\greet.proto
+		Protos\LuCat.proto = Protos\LuCat.proto
+		Protos\StreamExChange.proto = Protos\StreamExChange.proto
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D03A59FD-448C-482B-93EE-60735449D355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03A59FD-448C-482B-93EE-60735449D355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D03A59FD-448C-482B-93EE-60735449D355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D03A59FD-448C-482B-93EE-60735449D355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D45B382B-65BC-40E7-9E5E-877182939909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45B382B-65BC-40E7-9E5E-877182939909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45B382B-65BC-40E7-9E5E-877182939909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45B382B-65BC-40E7-9E5E-877182939909}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B301F7D-623A-4AB5-BCFE-FB5FAF4F88A6}
+	EndGlobalSection
+EndGlobal
