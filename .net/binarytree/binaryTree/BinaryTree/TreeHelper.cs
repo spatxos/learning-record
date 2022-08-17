@@ -72,7 +72,7 @@ namespace binaryTree.BinaryTree
         }
 
         /// <summary>
-        /// 打印二叉树
+        /// 搜索二叉树
         /// </summary>
         /// <param name="node"></param>
         /// <param name="Layer"></param>

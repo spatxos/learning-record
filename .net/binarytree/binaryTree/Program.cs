@@ -1,4 +1,5 @@
-﻿using binaryTree.BinarySearchTree;
+﻿using binaryTree.AVLTree.BalanceBinaryTree;
+using binaryTree.BinarySearchTree;
 using binaryTree.BinaryTree;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,32 @@ namespace binaryTree
                     mytree.printTree();
                     Console.WriteLine($"findMin:{mytree.findMin()}");
                     Console.WriteLine($"findMax:{mytree.findMax()}");
+                }
+                #endregion
+                #region AVL树
+                {
+                    Tree tree = new Tree();
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        tree.Insert(ref tree.root, array[i]);
+                    }
+                    tree.PrintTree(tree.root, 0);
+                    tree.PreOrder(tree.root);
+                    Console.WriteLine();
+                    tree.InOrder(tree.root);
+                    Console.WriteLine();
+                    tree.PostOrder(tree.root);
+                    //Console.WriteLine();
+                    //tree.Remove(ref tree.root, 8);
+                    //Console.WriteLine();
+                    //tree.PreOrder(tree.root);
+                    //Console.WriteLine();
+                    //tree.IniOrder(tree.root);
+                    //tree.Remove(ref tree.root, 10);
+                    //Console.WriteLine();
+                    //tree.PreOrder(tree.root);
+                    //Console.WriteLine();
+                    //tree.IniOrder(tree.root);
                 }
                 #endregion
             }
