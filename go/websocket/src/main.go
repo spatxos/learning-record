@@ -2,8 +2,10 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
+	_ "net/http/pprof"
 	"websocket/src/client"
 )
 
@@ -23,6 +25,9 @@ func serveHome(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	var x uint16 = 0
+	x--
+	fmt.Println("x=", x)
 	flag.Parse()
 	hub := client.NewHub()
 	go hub.Run()
@@ -30,6 +35,7 @@ func main() {
 	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
 		client.ServeWs(hub, w, r)
 	})
+
 	err := http.ListenAndServe(*addr, nil)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)

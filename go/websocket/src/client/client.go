@@ -146,6 +146,9 @@ func ServeWs(hub *Hub, w http.ResponseWriter, r *http.Request) {
 			pwd = v[0]
 		}
 	}
+	if ok := hub.onlines[name]; ok {
+		name = name + "_1"
+	}
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Println(err)

@@ -1,0 +1,84 @@
+{
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Scheme": "http",
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  },
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "service-a",
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "192.168.124.11",
+      //    "Port": 8000
+      //  },
+      //  {
+      //    "Host": "192.168.124.11",
+      //    "Port": 8001
+      //  }
+      //],
+      "UpstreamPathTemplate": "/servicea/{url}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [], // ��������������������
+        "EnableRateLimiting": true, // ��������
+        "Period": "5s", // ָ��ʱ����ڣ�s,m,h,d��
+        "PeriodTimespan": 5, // �������ƴ�������ȴ���ʱ�䣨�룩
+        "Limit": 5 // �� Period ʱ�����������������
+      },
+      "QoSOptions": { // Install-Package Ocelot.Provider.Polly
+        "ExceptionsAllowedBeforeBreaking": 3, // �����쳣����
+        "DurationOfBreak": 5000, // �۶�ʱ��
+        "TimeoutValue": 5000 // ��ʱʱ��
+      }
+      //"FileCacheOptions": { // Install-Package Ocelot.Cache.CacheManager
+      //  "TtlSeconds": 15,
+      //  "Region": "servicea"
+      //}
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "service-b",
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "192.168.124.11",
+      //    "Port": 8000
+      //  },
+      //  {
+      //    "Host": "192.168.124.11",
+      //    "Port": 8001
+      //  }
+      //],
+      "UpstreamPathTemplate": "/serviceb/{url}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [], // ��������������������
+        "EnableRateLimiting": true, // ��������
+        "Period": "5s", // ָ��ʱ����ڣ�s,m,h,d��
+        "PeriodTimespan": 5, // �������ƴ�������ȴ���ʱ�䣨�룩
+        "Limit": 5 // �� Period ʱ�����������������
+      },
+      "QoSOptions": { // Install-Package Ocelot.Provider.Polly
+        "ExceptionsAllowedBeforeBreaking": 3, // �����쳣����
+        "DurationOfBreak": 5000, // �۶�ʱ��
+        "TimeoutValue": 5000 // ��ʱʱ��
+      }
+      //"FileCacheOptions": { // Install-Package Ocelot.Cache.CacheManager
+      //  "TtlSeconds": 15,
+      //  "Region": "servicea"
+      //}
+    }
+  ]
+}

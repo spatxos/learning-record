@@ -1,0 +1,1 @@
+在consul.exe目录下打开命令行执行 consul.exe agent -dev

@@ -1,0 +1,220 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Service\\RebbitMq.Service.csproj": {}
+  },
+  "projects": {
+    "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RabbitMQ.Extensions\\RabbitMQ.Extensions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RabbitMQ.Extensions\\RabbitMQ.Extensions.csproj",
+        "projectName": "RabbitMQ.Extensions",
+        "projectPath": "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RabbitMQ.Extensions\\RabbitMQ.Extensions.csproj",
+        "packagesPath": "C:\\Users\\MS-M29\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RabbitMQ.Extensions\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\MS-M29\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "E:\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Message\\RebbitMq.Message.csproj": {
+                "projectPath": "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Message\\RebbitMq.Message.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[7.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Message\\RebbitMq.Message.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Message\\RebbitMq.Message.csproj",
+        "projectName": "RebbitMq.Message",
+        "projectPath": "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Message\\RebbitMq.Message.csproj",
+        "packagesPath": "C:\\Users\\MS-M29\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Message\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\MS-M29\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "E:\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Service\\RebbitMq.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Service\\RebbitMq.Service.csproj",
+        "projectName": "RebbitMq.Service",
+        "projectPath": "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Service\\RebbitMq.Service.csproj",
+        "packagesPath": "C:\\Users\\MS-M29\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\MS-M29\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "E:\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RabbitMQ.Extensions\\RabbitMQ.Extensions.csproj": {
+                "projectPath": "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RabbitMQ.Extensions\\RabbitMQ.Extensions.csproj"
+              },
+              "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Message\\RebbitMq.Message.csproj": {
+                "projectPath": "D:\\Project\\DotNetLearn\\DotNetLearn\\src\\02.MQ\\01.RabbitMq\\RebbitMq.Message\\RebbitMq.Message.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[7.0.6, )"
+            },
+            "Topshelf": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "Topshelf.Log4Net": {
+              "target": "Package",
+              "version": "[4.2.1, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.12, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

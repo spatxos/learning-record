@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "KqdGOQxbjOyd1L1eNnP9ufv7jqsNoP7Hu+xaAHibjAsjPDcpwsayBpzdRL0leOgo59JvgS/L5fUTaaY3W/nEwQ==",
+  "success": true,
+  "projectFilePath": "D:\\github\\learning-record\\.net\\tools\\replaceText\\replaceText.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\wangp\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\7.0.0\\microsoft.netcore.app.runtime.win-x86.7.0.0.nupkg.sha512",
+    "C:\\Users\\wangp\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\7.0.0\\microsoft.windowsdesktop.app.runtime.win-x86.7.0.0.nupkg.sha512",
+    "C:\\Users\\wangp\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\7.0.0\\microsoft.aspnetcore.app.runtime.win-x86.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

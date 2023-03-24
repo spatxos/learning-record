@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = ServiceB
+build_property.ProjectDir = D:\github\learning-record\.net\consul\ServiceB\

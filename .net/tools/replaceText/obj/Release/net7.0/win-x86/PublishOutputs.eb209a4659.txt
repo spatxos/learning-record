@@ -1,0 +1,1 @@
+D:\github\learning-record\.net\tools\replaceText\bin\Release\net7.0\publish\win-x86\replaceText.exe

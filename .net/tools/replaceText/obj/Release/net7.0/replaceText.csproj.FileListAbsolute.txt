@@ -1,0 +1,15 @@
+D:\github\learning-record\.net\tools\replaceText\bin\Release\net7.0\replaceText.exe
+D:\github\learning-record\.net\tools\replaceText\bin\Release\net7.0\replaceText.deps.json
+D:\github\learning-record\.net\tools\replaceText\bin\Release\net7.0\replaceText.runtimeconfig.json
+D:\github\learning-record\.net\tools\replaceText\bin\Release\net7.0\replaceText.dll
+D:\github\learning-record\.net\tools\replaceText\bin\Release\net7.0\replaceText.pdb
+D:\github\learning-record\.net\tools\replaceText\obj\Release\net7.0\replaceText.csproj.AssemblyReference.cache
+D:\github\learning-record\.net\tools\replaceText\obj\Release\net7.0\replaceText.GeneratedMSBuildEditorConfig.editorconfig
+D:\github\learning-record\.net\tools\replaceText\obj\Release\net7.0\replaceText.AssemblyInfoInputs.cache
+D:\github\learning-record\.net\tools\replaceText\obj\Release\net7.0\replaceText.AssemblyInfo.cs
+D:\github\learning-record\.net\tools\replaceText\obj\Release\net7.0\replaceText.csproj.CoreCompileInputs.cache
+D:\github\learning-record\.net\tools\replaceText\obj\Release\net7.0\replaceText.dll
+D:\github\learning-record\.net\tools\replaceText\obj\Release\net7.0\refint\replaceText.dll
+D:\github\learning-record\.net\tools\replaceText\obj\Release\net7.0\replaceText.pdb
+D:\github\learning-record\.net\tools\replaceText\obj\Release\net7.0\replaceText.genruntimeconfig.cache
+D:\github\learning-record\.net\tools\replaceText\obj\Release\net7.0\ref\replaceText.dll

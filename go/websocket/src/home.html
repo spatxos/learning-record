@@ -7,7 +7,7 @@ if(top.location != self.location ){
     top.location = self.location;
 }
 var conn;
-
+var timer = null;
 window.onload = function () {
     var input = prompt("你叫什么？密码是什么？两个用空格隔开");
     if(input!=null&&input!=""){
@@ -40,6 +40,16 @@ window.onload = function () {
             msg.value = "";
             return false;
         };
+        document.getElementById("cycle").onclick = function(){
+            timer = setInterval(function () { 
+                document.getElementById("msg").value = "zzzzzzzzzzzzzzzzzzzzzzzzz";
+                document.getElementById("submit").click();
+            }, 2000)
+        }
+        document.getElementById("closecycle").onclick = function(){
+            clearInterval(timer);
+            timer = null;
+        }
 
         if (window["WebSocket"]) {
             conn = new WebSocket("ws://" + document.location.host + "/ws?name="+name+"&pwd="+pwd);
@@ -116,9 +126,11 @@ body {
 <body>
 <div id="log"></div>
 <form id="form">
-    <input type="submit" value="Send" />
+    <input type="submit" id="submit" value="Send" />
     <input type="text" id="msg" size="64" autofocus />
     to: <input type="text" id="to" /><span>留空则发给全部</span>
+    <input type="button" id="cycle" value="循环发送（间隔2s）" />
+    <input type="button" id="closecycle" value="关闭循环发送" /> 
 </form>
 </body>
 </html>
