@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\bin\Debug\net8.0\PrototypeApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\bin\Debug\net8.0\PrototypeApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\bin\Debug\net8.0\PrototypeApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\bin\Debug\net8.0\PrototypeApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\bin\Debug\net8.0\PrototypeApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\obj\Debug\net8.0\PrototypeApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\obj\Debug\net8.0\PrototypeApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\obj\Debug\net8.0\PrototypeApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\obj\Debug\net8.0\PrototypeApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\obj\Debug\net8.0\PrototypeApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\obj\Debug\net8.0\PrototypeApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\obj\Debug\net8.0\refint\PrototypeApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\obj\Debug\net8.0\PrototypeApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\obj\Debug\net8.0\PrototypeApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\PrototypeApp\obj\Debug\net8.0\ref\PrototypeApp.dll

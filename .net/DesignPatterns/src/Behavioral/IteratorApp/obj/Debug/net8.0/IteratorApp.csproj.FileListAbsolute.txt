@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\bin\Debug\net8.0\IteratorApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\bin\Debug\net8.0\IteratorApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\bin\Debug\net8.0\IteratorApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\bin\Debug\net8.0\IteratorApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\bin\Debug\net8.0\IteratorApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\obj\Debug\net8.0\IteratorApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\obj\Debug\net8.0\IteratorApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\obj\Debug\net8.0\IteratorApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\obj\Debug\net8.0\IteratorApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\obj\Debug\net8.0\IteratorApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\obj\Debug\net8.0\IteratorApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\obj\Debug\net8.0\refint\IteratorApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\obj\Debug\net8.0\IteratorApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\obj\Debug\net8.0\IteratorApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\IteratorApp\obj\Debug\net8.0\ref\IteratorApp.dll

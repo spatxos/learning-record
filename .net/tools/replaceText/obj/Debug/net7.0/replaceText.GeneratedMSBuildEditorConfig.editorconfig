@@ -12,4 +12,4 @@ build_property.EnableSingleFileAnalyzer =
 build_property.EnableTrimAnalyzer = true
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = replaceText
-build_property.ProjectDir = D:\github\learning-record\.net\tools\replaceText\
+build_property.ProjectDir = D:\Project\github\learning-record\.net\tools\replaceText\

@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\bin\Debug\net8.0\SingletonApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\bin\Debug\net8.0\SingletonApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\bin\Debug\net8.0\SingletonApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\bin\Debug\net8.0\SingletonApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\bin\Debug\net8.0\SingletonApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\obj\Debug\net8.0\SingletonApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\obj\Debug\net8.0\SingletonApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\obj\Debug\net8.0\SingletonApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\obj\Debug\net8.0\SingletonApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\obj\Debug\net8.0\SingletonApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\obj\Debug\net8.0\SingletonApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\obj\Debug\net8.0\refint\SingletonApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\obj\Debug\net8.0\SingletonApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\obj\Debug\net8.0\SingletonApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Creational\SingletonApp\obj\Debug\net8.0\ref\SingletonApp.dll

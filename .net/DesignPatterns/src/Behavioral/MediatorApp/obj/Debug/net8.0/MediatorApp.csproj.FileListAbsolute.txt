@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\bin\Debug\net8.0\MediatorApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\bin\Debug\net8.0\MediatorApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\bin\Debug\net8.0\MediatorApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\bin\Debug\net8.0\MediatorApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\bin\Debug\net8.0\MediatorApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\obj\Debug\net8.0\MediatorApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\obj\Debug\net8.0\MediatorApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\obj\Debug\net8.0\MediatorApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\obj\Debug\net8.0\MediatorApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\obj\Debug\net8.0\MediatorApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\obj\Debug\net8.0\MediatorApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\obj\Debug\net8.0\refint\MediatorApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\obj\Debug\net8.0\MediatorApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\obj\Debug\net8.0\MediatorApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\MediatorApp\obj\Debug\net8.0\ref\MediatorApp.dll

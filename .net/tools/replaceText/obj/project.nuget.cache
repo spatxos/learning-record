@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "doOk8l4kgIFCLjJKt8X+jbAahPOVI4fEVZ8eGKzouclL68eET1fWBrxNlautEWVKSzYHui6XHnLPhbOib2ukNw==",
+  "dgSpecHash": "TqDxuSBrlUr+Nsj/TIcEkkveUNiPMsWjCAjBGah2FtBN/MknKAtruPp8hzXV61BLNgnRTwsNVk55wue2xN7CCA==",
   "success": true,
-  "projectFilePath": "D:\\github\\learning-record\\.net\\tools\\replaceText\\replaceText.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\tools\\replaceText\\replaceText.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

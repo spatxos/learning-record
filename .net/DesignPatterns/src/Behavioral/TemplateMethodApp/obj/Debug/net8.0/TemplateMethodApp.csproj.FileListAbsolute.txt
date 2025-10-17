@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\bin\Debug\net8.0\TemplateMethodApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\bin\Debug\net8.0\TemplateMethodApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\bin\Debug\net8.0\TemplateMethodApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\bin\Debug\net8.0\TemplateMethodApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\bin\Debug\net8.0\TemplateMethodApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\obj\Debug\net8.0\TemplateMethodApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\obj\Debug\net8.0\TemplateMethodApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\obj\Debug\net8.0\TemplateMethodApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\obj\Debug\net8.0\TemplateMethodApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\obj\Debug\net8.0\TemplateMethodApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\obj\Debug\net8.0\TemplateMethodApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\obj\Debug\net8.0\refint\TemplateMethodApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\obj\Debug\net8.0\TemplateMethodApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\obj\Debug\net8.0\TemplateMethodApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\TemplateMethodApp\obj\Debug\net8.0\ref\TemplateMethodApp.dll

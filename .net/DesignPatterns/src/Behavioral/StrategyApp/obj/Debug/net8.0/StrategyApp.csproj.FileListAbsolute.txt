@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\obj\Debug\net8.0\StrategyApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\obj\Debug\net8.0\StrategyApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\obj\Debug\net8.0\StrategyApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\obj\Debug\net8.0\StrategyApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\obj\Debug\net8.0\StrategyApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\bin\Debug\net8.0\StrategyApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\bin\Debug\net8.0\StrategyApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\bin\Debug\net8.0\StrategyApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\bin\Debug\net8.0\StrategyApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\bin\Debug\net8.0\StrategyApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\obj\Debug\net8.0\StrategyApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\obj\Debug\net8.0\refint\StrategyApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\obj\Debug\net8.0\StrategyApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\obj\Debug\net8.0\StrategyApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StrategyApp\obj\Debug\net8.0\ref\StrategyApp.dll

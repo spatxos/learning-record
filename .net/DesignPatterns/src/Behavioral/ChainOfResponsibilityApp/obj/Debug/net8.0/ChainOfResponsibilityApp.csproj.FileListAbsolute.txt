@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\bin\Debug\net8.0\ChainOfResponsibilityApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\bin\Debug\net8.0\ChainOfResponsibilityApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\bin\Debug\net8.0\ChainOfResponsibilityApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\bin\Debug\net8.0\ChainOfResponsibilityApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\bin\Debug\net8.0\ChainOfResponsibilityApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\obj\Debug\net8.0\ChainOfResponsibilityApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\obj\Debug\net8.0\ChainOfResponsibilityApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\obj\Debug\net8.0\ChainOfResponsibilityApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\obj\Debug\net8.0\ChainOfResponsibilityApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\obj\Debug\net8.0\ChainOfResponsibilityApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\obj\Debug\net8.0\ChainOfResponsibilityApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\obj\Debug\net8.0\refint\ChainOfResponsibilityApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\obj\Debug\net8.0\ChainOfResponsibilityApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\obj\Debug\net8.0\ChainOfResponsibilityApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\ChainOfResponsibilityApp\obj\Debug\net8.0\ref\ChainOfResponsibilityApp.dll

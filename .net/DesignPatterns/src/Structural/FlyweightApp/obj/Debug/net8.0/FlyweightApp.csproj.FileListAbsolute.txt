@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\bin\Debug\net8.0\FlyweightApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\bin\Debug\net8.0\FlyweightApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\bin\Debug\net8.0\FlyweightApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\bin\Debug\net8.0\FlyweightApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\bin\Debug\net8.0\FlyweightApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\obj\Debug\net8.0\FlyweightApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\obj\Debug\net8.0\FlyweightApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\obj\Debug\net8.0\FlyweightApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\obj\Debug\net8.0\FlyweightApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\obj\Debug\net8.0\FlyweightApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\obj\Debug\net8.0\FlyweightApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\obj\Debug\net8.0\refint\FlyweightApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\obj\Debug\net8.0\FlyweightApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\obj\Debug\net8.0\FlyweightApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\FlyweightApp\obj\Debug\net8.0\ref\FlyweightApp.dll

@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\bin\Debug\net8.0\VisitorApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\bin\Debug\net8.0\VisitorApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\bin\Debug\net8.0\VisitorApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\bin\Debug\net8.0\VisitorApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\bin\Debug\net8.0\VisitorApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\obj\Debug\net8.0\VisitorApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\obj\Debug\net8.0\VisitorApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\obj\Debug\net8.0\VisitorApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\obj\Debug\net8.0\VisitorApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\obj\Debug\net8.0\VisitorApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\obj\Debug\net8.0\VisitorApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\obj\Debug\net8.0\refint\VisitorApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\obj\Debug\net8.0\VisitorApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\obj\Debug\net8.0\VisitorApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\VisitorApp\obj\Debug\net8.0\ref\VisitorApp.dll

@@ -9,10 +9,11 @@ if(top.location != self.location ){
 var conn;
 var timer = null;
 window.onload = function () {
-    var input = prompt("你叫什么？密码是什么？两个用空格隔开");
+    var input = prompt("你叫什么？");
     if(input!=null&&input!=""){
         var name = input.split(" ")[0];
-        var pwd = input.split(" ")[1];
+        // var pwd = input.split(" ")[1];
+        var pwd = input.split(" ")[0];
         var msg = document.getElementById("msg");
         var to = document.getElementById("to");
         var log = document.getElementById("log");

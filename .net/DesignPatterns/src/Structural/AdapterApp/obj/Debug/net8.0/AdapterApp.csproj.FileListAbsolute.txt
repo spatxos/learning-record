@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\bin\Debug\net8.0\AdapterApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\bin\Debug\net8.0\AdapterApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\bin\Debug\net8.0\AdapterApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\bin\Debug\net8.0\AdapterApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\bin\Debug\net8.0\AdapterApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\obj\Debug\net8.0\AdapterApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\obj\Debug\net8.0\AdapterApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\obj\Debug\net8.0\AdapterApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\obj\Debug\net8.0\AdapterApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\obj\Debug\net8.0\AdapterApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\obj\Debug\net8.0\AdapterApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\obj\Debug\net8.0\refint\AdapterApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\obj\Debug\net8.0\AdapterApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\obj\Debug\net8.0\AdapterApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\AdapterApp\obj\Debug\net8.0\ref\AdapterApp.dll

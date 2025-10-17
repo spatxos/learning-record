@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\bin\Debug\net8.0\BridgeApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\bin\Debug\net8.0\BridgeApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\bin\Debug\net8.0\BridgeApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\bin\Debug\net8.0\BridgeApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\bin\Debug\net8.0\BridgeApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\obj\Debug\net8.0\BridgeApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\obj\Debug\net8.0\BridgeApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\obj\Debug\net8.0\BridgeApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\obj\Debug\net8.0\BridgeApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\obj\Debug\net8.0\BridgeApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\obj\Debug\net8.0\BridgeApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\obj\Debug\net8.0\refint\BridgeApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\obj\Debug\net8.0\BridgeApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\obj\Debug\net8.0\BridgeApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\BridgeApp\obj\Debug\net8.0\ref\BridgeApp.dll

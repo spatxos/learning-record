@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\bin\Debug\net8.0\StateApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\bin\Debug\net8.0\StateApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\bin\Debug\net8.0\StateApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\bin\Debug\net8.0\StateApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\bin\Debug\net8.0\StateApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\obj\Debug\net8.0\StateApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\obj\Debug\net8.0\StateApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\obj\Debug\net8.0\StateApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\obj\Debug\net8.0\StateApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\obj\Debug\net8.0\StateApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\obj\Debug\net8.0\StateApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\obj\Debug\net8.0\refint\StateApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\obj\Debug\net8.0\StateApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\obj\Debug\net8.0\StateApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Behavioral\StateApp\obj\Debug\net8.0\ref\StateApp.dll

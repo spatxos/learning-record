@@ -1,0 +1,15 @@
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\bin\Debug\net8.0\DecoratorApp.exe
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\bin\Debug\net8.0\DecoratorApp.deps.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\bin\Debug\net8.0\DecoratorApp.runtimeconfig.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\bin\Debug\net8.0\DecoratorApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\bin\Debug\net8.0\DecoratorApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\obj\Debug\net8.0\DecoratorApp.GeneratedMSBuildEditorConfig.editorconfig
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\obj\Debug\net8.0\DecoratorApp.AssemblyInfoInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\obj\Debug\net8.0\DecoratorApp.AssemblyInfo.cs
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\obj\Debug\net8.0\DecoratorApp.csproj.CoreCompileInputs.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\obj\Debug\net8.0\DecoratorApp.sourcelink.json
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\obj\Debug\net8.0\DecoratorApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\obj\Debug\net8.0\refint\DecoratorApp.dll
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\obj\Debug\net8.0\DecoratorApp.pdb
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\obj\Debug\net8.0\DecoratorApp.genruntimeconfig.cache
+d:\Project\github\learning-record\.net\DesignPatterns\src\Structural\DecoratorApp\obj\Debug\net8.0\ref\DecoratorApp.dll
