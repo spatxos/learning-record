@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MDkNvuuhrvE=",
+  "dgSpecHash": "F9/oLJKkA52y+InE5rCoudWPeuBDcGo64185Ugk5kYfJ8A+bVsuma+a+VfZRMrzCMfNXbrX2Tmrnbi5a2hy+Ng==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\TemplateMethodApp\\TemplateMethodApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\TemplateMethodApp\\TemplateMethodApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

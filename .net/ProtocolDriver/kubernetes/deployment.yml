@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: protocol-driver-host
+  labels:
+    app: protocol-driver-host
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: protocol-driver-host
+  template:
+    metadata:
+      labels:
+        app: protocol-driver-host
+    spec:
+      containers:
+      - name: protocol-driver-host
+        image: protocol-driver-host:latest
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: plugins-volume
+          mountPath: /app/plugins
+        env:
+        - name: ASPNETCORE_URLS
+          value: "http://+:8080"
+        - name: DOTNET_ENVIRONMENT
+          value: "Production"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1"
+      volumes:
+      - name: plugins-volume
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: protocol-driver-host
+  labels:
+    app: protocol-driver-host
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30080
+  selector:
+    app: protocol-driver-host
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: protocol-driver-host-config
+data:
+  appsettings.Production.json: |
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft.AspNetCore": "Warning"
+        }
+      },
+      "AllowedHosts": "*"
+    }

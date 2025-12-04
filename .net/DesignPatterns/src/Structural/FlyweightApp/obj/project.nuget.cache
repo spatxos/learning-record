@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1l4gQ3KrReE=",
+  "dgSpecHash": "AWVKE0koAwbkFPShMIqwLmX07Zk74SDrk0Qqq9GJ5eKGixEeKEILH32evxeLN4oI9GvKDjaICYFAdeNubOTNDw==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\FlyweightApp\\FlyweightApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\FlyweightApp\\FlyweightApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

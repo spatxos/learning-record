@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UATt4YPDYpk=",
+  "dgSpecHash": "j7/g+1Iwc3ZnQEYGx0v2PtPN5emb31fKwml7vb34dRR6q1gUlD7Mev15ZIlJW/HAk2b0vPkP2ooNbBdES7AA8w==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\MediatorApp\\MediatorApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\MediatorApp\\MediatorApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

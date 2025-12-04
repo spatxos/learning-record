@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z2k70G3wc4E=",
+  "dgSpecHash": "++YKD0slC+iLEp4FwC4CIu/kH+/8YGdgtmcH+oR5DBF1wX5xfIoSOsQTK7RZPcHnmLUYKi7ADADjOqX+i6KUsQ==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Creational\\PrototypeApp\\PrototypeApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Creational\\PrototypeApp\\PrototypeApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

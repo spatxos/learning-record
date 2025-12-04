@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gr+5exuW52c=",
+  "dgSpecHash": "onPOm6LdGn3M0fA+MG3dWiOYCc6WGPtvUqxOo19dGQjvTjZBe9zSQB6PVvUzg3i2rD5Zp8aslZGU9Ngyo2TTmw==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\DecoratorApp\\DecoratorApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\DecoratorApp\\DecoratorApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

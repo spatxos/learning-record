@@ -1,0 +1,12 @@
+D:\Project\test\ProtocolDriver\Host.SDK\bin\Debug\net8.0\Host.SDK.deps.json
+D:\Project\test\ProtocolDriver\Host.SDK\bin\Debug\net8.0\Host.SDK.dll
+D:\Project\test\ProtocolDriver\Host.SDK\bin\Debug\net8.0\Host.SDK.pdb
+D:\Project\test\ProtocolDriver\Host.SDK\obj\Debug\net8.0\Host.SDK.csproj.AssemblyReference.cache
+D:\Project\test\ProtocolDriver\Host.SDK\obj\Debug\net8.0\Host.SDK.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\test\ProtocolDriver\Host.SDK\obj\Debug\net8.0\Host.SDK.AssemblyInfoInputs.cache
+D:\Project\test\ProtocolDriver\Host.SDK\obj\Debug\net8.0\Host.SDK.AssemblyInfo.cs
+D:\Project\test\ProtocolDriver\Host.SDK\obj\Debug\net8.0\Host.SDK.csproj.CoreCompileInputs.cache
+D:\Project\test\ProtocolDriver\Host.SDK\obj\Debug\net8.0\Host.SDK.dll
+D:\Project\test\ProtocolDriver\Host.SDK\obj\Debug\net8.0\refint\Host.SDK.dll
+D:\Project\test\ProtocolDriver\Host.SDK\obj\Debug\net8.0\Host.SDK.pdb
+D:\Project\test\ProtocolDriver\Host.SDK\obj\Debug\net8.0\ref\Host.SDK.dll

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AjXuRqze3Tw=",
+  "dgSpecHash": "EJvv8rio33j2A9W5USsWOLiH5ytmtUQg8UtD0pTpHKVlQFM3eh3tQP2nKE/iQQCoXO3ool/Gg0+FWBbcIRACdw==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\CommandApp\\CommandApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\CommandApp\\CommandApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

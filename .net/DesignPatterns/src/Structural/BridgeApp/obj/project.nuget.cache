@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4Nt3KpwZ/28=",
+  "dgSpecHash": "YQZ2koCMjppZ4h+pW+Tcw8OB0aNcsdyKWIjB9B31JYySKm+ZDwvg/x7r5uOSvEM1Vd1kG3sQ3oszx4OLqS1DrA==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\BridgeApp\\BridgeApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\BridgeApp\\BridgeApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

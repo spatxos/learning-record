@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4myJAUJOTZ4=",
+  "dgSpecHash": "jtkT6i7dSKK79jVm0pFFTYsQ2B6aTaIB/rQG9of2r3z0l6sYV9n7iiV+1m2C2FS2RLaCvt6JOT2Bey5/RiIOig==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\FacadeApp\\FacadeApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\FacadeApp\\FacadeApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

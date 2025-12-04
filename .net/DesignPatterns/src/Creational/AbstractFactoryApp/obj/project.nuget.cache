@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pxYcFc1KrCA=",
+  "dgSpecHash": "UL8YmuIIKjvCkrFjVqmNDyBgf24mtNFC5XTQ3MNSaGA9+XHogbuYxpfpRgFElLrf53jOzX/rvFfmgJboqxh3Nw==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Creational\\AbstractFactoryApp\\AbstractFactoryApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Creational\\AbstractFactoryApp\\AbstractFactoryApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

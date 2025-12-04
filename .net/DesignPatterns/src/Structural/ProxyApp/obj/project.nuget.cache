@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WnRkRIMtagQ=",
+  "dgSpecHash": "DKlVpVlmn1TYlA20se085WxbCToO0JGNrLWFHdG93PHpZMzXLGGCY26Y3nlJ1bmgiw0jpLWo8RLOMlkd/zHqUQ==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\ProxyApp\\ProxyApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\ProxyApp\\ProxyApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

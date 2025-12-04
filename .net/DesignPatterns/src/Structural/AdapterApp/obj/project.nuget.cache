@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ipHXK7EM4UQ=",
+  "dgSpecHash": "qJre5Y+Qrpxkd9Npo8dro1jpI51ZbBOoGuDegyRERiM84IuhF3m5cO9tmRbgnbJajvfgHbJ3NDysXR1KZpUjUg==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\AdapterApp\\AdapterApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\AdapterApp\\AdapterApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

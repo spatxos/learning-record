@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T3jO1yECPtw=",
+  "dgSpecHash": "H3e7+KYHCMKiuyAs2wvh+U28aIDmhphIaonICII8EjOs1tFpM3a5C5MDYLHID692cmVHUD/yiDiVWgbSULexJw==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Creational\\SingletonApp\\SingletonApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Creational\\SingletonApp\\SingletonApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

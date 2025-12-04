@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6rrzr176fzA=",
+  "dgSpecHash": "1K4ZYjtwLwAXglficC2oyWqdRfK5cyTQWMR/6yXLwEv3R0fdS9XT8jl/t2aUWEaKUWK8J1gH1hMlqUy8J7mGYg==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\StateApp\\StateApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\StateApp\\StateApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

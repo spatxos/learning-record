@@ -1,0 +1,59 @@
+image: mcr.microsoft.com/dotnet/sdk:8.0
+
+stages:
+  - build
+  - publish
+  - docker
+  - deploy
+
+variables:
+  PROJECT_NAME: Host
+  PUBLISH_DIR: ./publish
+  DOCKER_IMAGE: registry.gitlab.com/your-namespace/protocol-driver-host
+
+build:
+  stage: build
+  script:
+    - dotnet restore $PROJECT_NAME/$PROJECT_NAME.csproj
+    - dotnet build --no-restore -c Release $PROJECT_NAME/$PROJECT_NAME.csproj
+  artifacts:
+    paths:
+      - $PROJECT_NAME/bin/Release/
+
+publish:
+  stage: publish
+  dependencies:
+    - build
+  script:
+    - dotnet publish --no-build -c Release -o $PUBLISH_DIR $PROJECT_NAME/$PROJECT_NAME.csproj
+  artifacts:
+    paths:
+      - $PUBLISH_DIR/
+
+docker-build:
+  stage: docker
+  image: docker:latest
+  services:
+    - docker:dind
+  dependencies:
+    - publish
+  only:
+    - main
+  script:
+    - docker build -t $DOCKER_IMAGE:$CI_COMMIT_SHA .
+    - docker tag $DOCKER_IMAGE:$CI_COMMIT_SHA $DOCKER_IMAGE:latest
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+    - docker push $DOCKER_IMAGE:$CI_COMMIT_SHA
+    - docker push $DOCKER_IMAGE:latest
+
+deploy:
+  stage: deploy
+  image: bitnami/kubectl:latest
+  dependencies:
+    - docker-build
+  only:
+    - main
+  script:
+    - echo "$KUBE_CONFIG" > ~/.kube/config
+    - kubectl apply -f kubernetes/deployment.yml
+    - kubectl rollout restart deployment protocol-driver-host

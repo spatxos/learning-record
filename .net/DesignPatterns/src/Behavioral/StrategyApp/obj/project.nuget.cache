@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1Kqw0rpID1Q=",
+  "dgSpecHash": "SIfarJElcHObk8v+LopSQQ3BAyKFRStNS5gpz2ZBbUXTaVu6WPllecNFWTMrRg4KAiWmGtJVg3K68UVzzNKCpQ==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\StrategyApp\\StrategyApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\StrategyApp\\StrategyApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

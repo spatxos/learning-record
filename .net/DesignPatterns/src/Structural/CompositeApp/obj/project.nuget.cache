@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qst5LGJdRqg=",
+  "dgSpecHash": "03ENnN4YhgHrd8cahSjHvYxcIP0UewO1HYItKfNsq1+NKfZqyUjz4Mfe6/9oSbrYr/cfzoeAWq+Y4kOvZpQiVw==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\CompositeApp\\CompositeApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Structural\\CompositeApp\\CompositeApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

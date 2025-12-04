@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mgbq3YfdOvQ=",
+  "dgSpecHash": "HSBW3W+H75BKwonaR0xOmmPHpJwSyDXni9Z6dYourdj343giWMgEKiFU1IAhvmW28A1zD/zKQiJ1cWs/7bO/Jw==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ObserverApp\\ObserverApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ObserverApp\\ObserverApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

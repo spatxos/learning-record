@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "smQH0l6OAYY=",
+  "dgSpecHash": "8CnO//UnboI0/0KTy9tuciTIkOqjCeh5c/9M8K6njF8/ullaS8LAmByuRV6pb4VKYnRpYwol4y8ccL7HctKvzQ==",
   "success": true,
-  "projectFilePath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ChainOfResponsibilityApp\\ChainOfResponsibilityApp.csproj",
+  "projectFilePath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ChainOfResponsibilityApp\\ChainOfResponsibilityApp.csproj",
   "expectedPackageFiles": [],
   "logs": [
     {

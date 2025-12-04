@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  protocol-driver-host:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./plugins:/app/plugins
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - DOTNET_ENVIRONMENT=Production
+    restart: unless-stopped
+
+  # 示例: 可以添加其他依赖服务，如MQTT代理
+  # mqtt-broker:
+  #   image: eclipse-mosquitto:latest
+  #   ports:
+  #     - "1883:1883"
+  #     - "9001:9001"
+  #   volumes:
+  #     - ./mosquitto/config:/mosquitto/config
+  #     - ./mosquitto/data:/mosquitto/data
+  #     - ./mosquitto/log:/mosquitto/log
+  #   restart: unless-stopped

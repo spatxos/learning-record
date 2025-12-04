@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ChainOfResponsibilityApp\\ChainOfResponsibilityApp.csproj": {}
+    "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ChainOfResponsibilityApp\\ChainOfResponsibilityApp.csproj": {}
   },
   "projects": {
-    "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ChainOfResponsibilityApp\\ChainOfResponsibilityApp.csproj": {
+    "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ChainOfResponsibilityApp\\ChainOfResponsibilityApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ChainOfResponsibilityApp\\ChainOfResponsibilityApp.csproj",
+        "projectUniqueName": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ChainOfResponsibilityApp\\ChainOfResponsibilityApp.csproj",
         "projectName": "ChainOfResponsibilityApp",
-        "projectPath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ChainOfResponsibilityApp\\ChainOfResponsibilityApp.csproj",
+        "projectPath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ChainOfResponsibilityApp\\ChainOfResponsibilityApp.csproj",
         "packagesPath": "C:\\Users\\wangp\\.nuget\\packages\\",
-        "outputPath": "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ChainOfResponsibilityApp\\obj\\",
+        "outputPath": "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\src\\Behavioral\\ChainOfResponsibilityApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "d:\\Project\\github\\learning-record\\.net\\DesignPatterns\\NuGet.Config",
+          "D:\\Project\\github\\learning-record\\.net\\DesignPatterns\\NuGet.Config",
           "C:\\Users\\wangp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -40,11 +40,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
