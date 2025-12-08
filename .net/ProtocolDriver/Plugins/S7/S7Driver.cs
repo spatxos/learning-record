@@ -31,14 +31,20 @@ namespace S7
         public string ProtocolName => "S7"; 
         public string Version => "1.0.0";
 
+        public PluginMetadata Metadata => throw new NotImplementedException();
+
         public async Task InitializeAsync(DriverContext context, CancellationToken token = default)
         {
             _context = context;
             _context.Logger.LogInformation("S7 driver initialized");
 
             // 从配置读取连接信息
-            _ipAddress = _context.Config.GetValue<string>("S7:IpAddress") ?? _ipAddress;
-            _port = _context.Config.GetValue<int>("S7:Port") ?? _port;
+            _ipAddress = _context.Config.GetSection("S7:IpAddress").Value ?? _ipAddress;
+            if (!int.TryParse(_context.Config.GetSection("S7:Port").Value, out int value))
+            {
+                value = _port;
+            }
+            _port = value;
 
             // 建立连接
             await ConnectAsync(token);
@@ -278,6 +284,11 @@ namespace S7
             _stream?.Dispose();
             _client?.Dispose();
             _context.Logger.LogInformation("S7 driver disposed");
+        }
+
+        public Task<IProtocolConnection> CreateConnectionAsync(IDictionary<string, string> settings, CancellationToken token = default)
+        {
+            throw new NotImplementedException();
         }
     }
 

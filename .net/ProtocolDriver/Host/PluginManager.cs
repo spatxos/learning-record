@@ -156,27 +156,18 @@ namespace Host
                 // 创建驱动实例
                 var driver = (IProtocolDriver)Activator.CreateInstance(driverType)!;
 
-                // 准备驱动上下文
-                var driverContext = new DriverContext(
-                    _logger.CreateLogger(driver.ProtocolName),
-                    _transportFactory,
-                    _config,
-                    _hostApi
-                );
-
-                // 初始化驱动
-                await driver.InitializeAsync(driverContext);
-
                 // 创建插件信息
                 var pluginInfo = new PluginInfo
                 {
-                    ProtocolName = driver.ProtocolName,
-                    Version = driver.Version,
+                    ProtocolName = driver.Metadata.ProtocolName,
+                    Version = driver.Metadata.Version,
                     AssemblyPath = assemblyPath,
                     LoadContext = loadContext,
                     Driver = driver,
                     Status = PluginStatus.Running
                 };
+
+                // 驱动上下文不再需要，新接口没有InitializeAsync方法
 
                 // 添加到插件字典
                 _plugins[pluginInfo.Id] = pluginInfo;
@@ -220,8 +211,11 @@ namespace Host
                 // 设置状态为Unloading
                 pluginInfo.Status = PluginStatus.Unloading;
 
-                // 释放驱动资源
-                pluginInfo.Driver.Dispose();
+                // 释放驱动资源，如果实现了IDisposable接口
+                if (pluginInfo.Driver is IDisposable disposableDriver)
+                {
+                    disposableDriver.Dispose();
+                }
 
                 // 卸载AssemblyLoadContext
                 var loadContext = pluginInfo.LoadContext;

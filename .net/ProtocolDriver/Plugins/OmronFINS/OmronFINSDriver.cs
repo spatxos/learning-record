@@ -23,14 +23,20 @@ namespace OmronFINS
         public string ProtocolName => "OmronFINS";
         public string Version => "1.0.0";
 
+        public PluginMetadata Metadata => throw new NotImplementedException();
+
         public async Task InitializeAsync(DriverContext context, CancellationToken token = default)
         {
             _context = context;
             _context.Logger.LogInformation("Omron FINS driver initialized");
 
             // 从配置读取连接信息
-            _ipAddress = _context.Config.GetValue<string>("OmronFINS:IpAddress") ?? _ipAddress;
-            _port = _context.Config.GetValue<int>("OmronFINS:Port") ?? _port;
+            _ipAddress = _context.Config.GetSection("OmronFINS:IpAddress").Value ?? _ipAddress;
+            if(!int.TryParse(_context.Config.GetSection("OmronFINS:Port").Value, out int value))
+            {
+                value = _port;
+            }
+            _port = value;
 
             // 建立连接
             await ConnectAsync(token);
@@ -242,6 +248,11 @@ namespace OmronFINS
             _stream?.Dispose();
             _client?.Dispose();
             _context.Logger.LogInformation("Omron FINS driver disposed");
+        }
+
+        public Task<IProtocolConnection> CreateConnectionAsync(IDictionary<string, string> settings, CancellationToken token = default)
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -9,7 +9,7 @@ namespace Host
     /// <summary>
     /// Host API实现，提供给插件的运行时能力
     /// </summary>
-    public class HostApi : IHostApi
+    public class HostApi : Host.SDK.IHostApi
     {
         private readonly ILogger<HostApi> _logger;
 

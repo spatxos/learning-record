@@ -1,56 +1,64 @@
-using System;using System.Collections.Generic;using System.Threading;using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Host.SDK
 {
-    /// <summary>
-    /// 协议驱动接口，所有协议插件必须实现此接口
-    /// </summary>
-    public interface IProtocolDriver : IDisposable
+    // 表示插件元信息
+    public record PluginMetadata(string ProtocolName, string Version);
+
+    // 请求与响应
+    public record ProtocolRequest(string Action, IDictionary<string,string> Props, byte[]? Payload = null);
+    public record ProtocolResponse(bool Success, byte[]? Payload = null, IDictionary<string, object>? Parsed = null, string? Error = null);
+
+    public enum ConnectionState { Disconnected, Connecting, Connected, Error }
+
+    public class ConnectionStatusChangedEventArgs : EventArgs
     {
+        public string ConnectionId { get; init; } = default!;
+        public ConnectionState State { get; init; }
+        public string? Message { get; init; }
+    }
+
+    // 连接实例接口
+    public interface IProtocolConnection : IDisposable
+    {
+        string ConnectionId { get; }
+        IDictionary<string, string> Settings { get; }
+        ConnectionState State { get; }
+        event EventHandler<ConnectionStatusChangedEventArgs>? ConnectionStatusChanged;
+
+        Task OpenAsync(CancellationToken token = default);
+        Task CloseAsync(CancellationToken token = default);
+        Task<ProtocolResponse> ExecuteAsync(ProtocolRequest request, CancellationToken token = default);
+        
+        // 心跳机制相关方法和属性
         /// <summary>
-        /// 协议名称
+        /// 是否支持原生心跳机制
         /// </summary>
-        string ProtocolName { get; }
+        bool SupportsNativeHeartbeat { get; }
         
         /// <summary>
-        /// 版本号
+        /// 设置心跳检查点位（当协议不支持原生心跳时使用）
         /// </summary>
-        string Version { get; }
-
+        /// <param name="heartbeatAddress">心跳检查的地址</param>
+        /// <param name="dataType">数据类型（如Coil、Register等）</param>
+        void SetHeartbeatPoint(string heartbeatAddress, string dataType);
+        
         /// <summary>
-        /// 初始化：Host 为插件注入运行时能力
-        /// </summary>
-        /// <param name="context">驱动上下文</param>
-        /// <param name="token">取消令牌</param>
-        Task InitializeAsync(DriverContext context, CancellationToken token = default);
-
-        /// <summary>
-        /// 根据输入构造请求
-        /// </summary>
-        /// <param name="requestModel">请求模型</param>
-        /// <returns>请求字节数组</returns>
-        byte[] BuildRequest(object requestModel);
-
-        /// <summary>
-        /// 主动发起请求/执行命令
-        /// </summary>
-        /// <param name="request">请求字节数组</param>
-        /// <param name="token">取消令牌</param>
-        /// <returns>执行结果</returns>
-        Task<DriverResult> ExecuteAsync(byte[] request, CancellationToken token = default);
-
-        /// <summary>
-        /// 从原始响应解析到统一数据结构
-        /// </summary>
-        /// <param name="response">响应字节数组</param>
-        /// <returns>解析结果</returns>
-        DriverParseResult ParseResponse(byte[] response);
-
-        /// <summary>
-        /// 可选：插件自身的健康检查
+        /// 执行心跳检查
         /// </summary>
         /// <param name="token">取消令牌</param>
-        /// <returns>健康检查结果</returns>
-        Task<DriverHealth> CheckHealthAsync(CancellationToken token = default);
+        /// <returns>心跳是否成功</returns>
+        Task<bool> CheckHeartbeatAsync(CancellationToken token = default);
+    }
+
+    // 插件接口（DLL 实现此接口）
+    public interface IProtocolDriver
+    {
+        PluginMetadata Metadata { get; }
+        // 创建连接实例（设置来自 Host 保存的连接配置）
+        Task<IProtocolConnection> CreateConnectionAsync(IDictionary<string,string> settings, CancellationToken token = default);
     }
 }

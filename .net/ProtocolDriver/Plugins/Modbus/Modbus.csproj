@@ -8,6 +8,8 @@
     <Company>ProtocolDriver</Company>
     <Product>Modbus.Plugin</Product>
     <Version>1.0.0</Version>
+    <OutputType>Exe</OutputType>
+    <StartupObject>Modbus.TestConsole</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

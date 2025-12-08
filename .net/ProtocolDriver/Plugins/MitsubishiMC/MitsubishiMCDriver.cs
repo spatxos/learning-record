@@ -1,5 +1,4 @@
 using Host.SDK;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,56 +10,151 @@ namespace MitsubishiMC
 {
     public class MitsubishiMCDriver : IProtocolDriver
     {
-        private DriverContext _context = null!;
+        public PluginMetadata Metadata => new PluginMetadata("MitsubishiMC", "1.0.0");
+
+        public Task<IProtocolConnection> CreateConnectionAsync(IDictionary<string, string> settings, CancellationToken token = default)
+        {
+            var connectionId = Guid.NewGuid().ToString();
+            var connection = new MitsubishiMCConnection(connectionId, settings);
+            return Task.FromResult<IProtocolConnection>(connection);
+        }
+    }
+
+    public class MitsubishiMCConnection : IProtocolConnection
+    {
+        private readonly string _connectionId;
+        private readonly IDictionary<string, string> _settings;
         private TcpClient? _client;
         private NetworkStream? _stream;
-        private string _ipAddress = "127.0.0.1";
-        private int _port = 5007;
-        private byte _unitId = 0;
+        private ConnectionState _state = ConnectionState.Disconnected;
 
-        public string ProtocolName => "MitsubishiMC";
-        public string Version => "1.0.0";
+        public string ConnectionId => _connectionId;
+        public IDictionary<string, string> Settings => _settings;
+        public ConnectionState State => _state;
+        public event EventHandler<ConnectionStatusChangedEventArgs>? ConnectionStatusChanged;
 
-        public async Task InitializeAsync(DriverContext context, CancellationToken token = default)
+        private readonly string _ipAddress;
+        private readonly int _port;
+        private readonly byte _unitId;
+
+        public MitsubishiMCConnection(string connectionId, IDictionary<string, string> settings)
         {
-            _context = context;
-            _context.Logger.LogInformation("Mitsubishi MC driver initialized");
+            _connectionId = connectionId;
+            _settings = settings;
 
-            // 从配置读取连接信息
-            _ipAddress = _context.Config.GetValue<string>("MitsubishiMC:IpAddress") ?? _ipAddress;
-            _port = _context.Config.GetValue<int>("MitsubishiMC:Port") ?? _port;
-            _unitId = _context.Config.GetValue<byte>("MitsubishiMC:UnitId") ?? _unitId;
-
-            // 建立连接
-            await ConnectAsync(token);
+            // 从设置中读取连接信息
+            _ipAddress = settings.TryGetValue("Host", out var ip) ? ip : "127.0.0.1";
+            _port = settings.TryGetValue("Port", out var portStr) && int.TryParse(portStr, out var port) ? port : 5007;
+            _unitId = settings.TryGetValue("UnitId", out var unitIdStr) && byte.TryParse(unitIdStr, out var unitId) ? unitId : (byte)0;
         }
 
-        private async Task ConnectAsync(CancellationToken token)
+        public async Task OpenAsync(CancellationToken token = default)
         {
+            ChangeState(ConnectionState.Connecting, "Connecting to Mitsubishi MC server...");
+
             try
             {
-                _client = _context.TransportFactory.CreateTcpClient();
+                _client = new TcpClient();
                 await _client.ConnectAsync(_ipAddress, _port, token);
                 _stream = _client.GetStream();
-                _context.Logger.LogInformation("Connected to Mitsubishi MC server: {IpAddress}:{Port}", _ipAddress, _port);
+
+                ChangeState(ConnectionState.Connected, "Connected to Mitsubishi MC server");
             }
             catch (Exception ex)
             {
-                _context.Logger.LogError(ex, "Failed to connect to Mitsubishi MC server: {IpAddress}:{Port}", _ipAddress, _port);
+                ChangeState(ConnectionState.Error, ex.Message);
                 throw;
             }
         }
 
-        public byte[] BuildRequest(object requestModel)
+        public async Task CloseAsync(CancellationToken token = default)
         {
-            if (requestModel is not MCRequest request)
-                throw new ArgumentException("Invalid request model type", nameof(requestModel));
+            ChangeState(ConnectionState.Disconnected, "Disconnecting from Mitsubishi MC server...");
 
-            _context.Logger.LogDebug("BuildRequest: {CommandCode} - {DataType}{Address}:{Count}", 
-                request.CommandCode, request.DataType, request.StartAddress, request.Count);
+            try
+            {
+                _stream?.Dispose();
+                _client?.Dispose();
+            }
+            catch (Exception ex)
+            {
+                ChangeState(ConnectionState.Error, ex.Message);
+                throw;
+            }
+            finally
+            {
+                _stream = null;
+                _client = null;
+                ChangeState(ConnectionState.Disconnected, "Disconnected from Mitsubishi MC server");
+            }
+        }
 
-            // 保存当前请求，用于解析响应
-            MCRequest.Current = request;
+        public async Task<ProtocolResponse> ExecuteAsync(ProtocolRequest request, CancellationToken token = default)
+        {
+            try
+            {
+                if (_client == null || !_client.Connected)
+                {
+                    await OpenAsync(token);
+                }
+
+                // 根据请求动作构建MC协议请求
+                byte[] mcRequest = BuildMCRequest(request);
+
+                // 发送请求
+                await _stream!.WriteAsync(mcRequest, token);
+                await _stream.FlushAsync(token);
+
+                // 接收响应
+                var response = await ReadResponseAsync(token);
+
+                // 解析响应
+                var parsedResponse = ParseMCResponse(response, request);
+
+                return new ProtocolResponse(true, response, parsedResponse);
+            }
+            catch (Exception ex)
+            {
+                ChangeState(ConnectionState.Error, ex.Message);
+                return new ProtocolResponse(false, null, null, ex.Message);
+            }
+        }
+
+        private byte[] BuildMCRequest(ProtocolRequest request)
+        {
+            // 解析请求参数
+            ushort commandCode = 0x0401; // 默认读取命令
+            byte dataType = 0xA8; // 默认D寄存器
+            ushort startAddress = 0;
+            ushort count = 1;
+
+            if (request.Action.ToLower() == "write")
+            {
+                commandCode = 0x1401; // 写入命令
+            }
+
+            if (request.Props.TryGetValue("DataType", out var dataTypeStr))
+            {
+                // 根据数据类型字符串转换为MC协议数据类型
+                switch (dataTypeStr.ToUpper())
+                {
+                    case "D": dataType = 0xA8; break;
+                    case "M": dataType = 0x90; break;
+                    case "X": dataType = 0x9C; break;
+                    case "Y": dataType = 0x9D; break;
+                    default: dataType = 0xA8; break;
+                }
+            }
+
+            if (request.Props.TryGetValue("Address", out var addressStr) && ushort.TryParse(addressStr, out startAddress))
+            {
+                // 地址已解析
+            }
+
+            if (request.Props.TryGetValue("Count", out var countStr) && ushort.TryParse(countStr, out count))
+            {
+                // 数量已解析
+            }
 
             // 构建MC协议请求帧
             using (var ms = new MemoryStream())
@@ -79,44 +173,23 @@ namespace MitsubishiMC
                 writer.Write((ushort)0x0000); // Reserved
 
                 // Command
-                writer.Write((ushort)request.CommandCode); // Command code
-                writer.Write((ushort)0x0000);             // Subcommand code
-                writer.Write((byte)0x00);                 // Timer
+                writer.Write((ushort)commandCode); // Command code
+                writer.Write((ushort)0x0000);     // Subcommand code
+                writer.Write((byte)0x00);         // Timer
 
                 // Parameter
-                writer.Write((byte)request.DataType);     // Data type
-                writer.Write((ushort)request.StartAddress >> 8); // Start address (high)
-                writer.Write((ushort)request.StartAddress & 0xFF); // Start address (low)
-                writer.Write((ushort)request.Count);      // Number of items
+                writer.Write((byte)dataType);     // Data type
+                writer.Write((ushort)startAddress >> 8); // Start address (high)
+                writer.Write((ushort)startAddress & 0xFF); // Start address (low)
+                writer.Write((ushort)count);      // Number of items
 
-                return ms.ToArray();
-            }
-        }
-
-        public async Task<DriverResult> ExecuteAsync(byte[] request, CancellationToken token = default)
-        {
-            try
-            {
-                if (_client == null || !_client.Connected)
+                // 如果是写入命令，添加数据
+                if (commandCode == 0x1401 && request.Payload != null)
                 {
-                    await ConnectAsync(token);
+                    writer.Write(request.Payload);
                 }
 
-                // 发送请求
-                await _stream!.WriteAsync(request, token);
-                await _stream.FlushAsync(token);
-                _context.Logger.LogDebug("Sent MC request: {Request}", BitConverter.ToString(request));
-
-                // 接收响应
-                var response = await ReadResponseAsync(token);
-                _context.Logger.LogDebug("Received MC response: {Response}", BitConverter.ToString(response));
-
-                return new DriverResult(true, response);
-            }
-            catch (Exception ex)
-            {
-                _context.Logger.LogError(ex, "ExecuteAsync failed");
-                return new DriverResult(false, Array.Empty<byte>(), ex.Message);
+                return ms.ToArray();
             }
         }
 
@@ -127,29 +200,18 @@ namespace MitsubishiMC
             await ReadExactAsync(_stream!, header, token);
 
             // 解析帧长度（从响应头中获取）
-            using (var ms = new MemoryStream(header))
-            using (var reader = new BinaryReader(ms))
+            int dataLength = header.Length; // 简化实现，实际应从响应头计算数据长度
+
+            // 读取响应数据
+            var response = new List<byte>(header);
+            if (dataLength > header.Length)
             {
-                reader.ReadUInt16(); // SubHeader type
-                reader.ReadUInt16(); // Serial number
-                reader.ReadByte();   // Network number
-                reader.ReadByte();   // PC number
-                reader.ReadByte();   // Unit number
-                reader.ReadUInt16(); // Reserved
-
-                // 读取响应数据
-                var response = new List<byte>(header);
-                var dataLength = header.Length; // 简化实现，实际应从响应头计算数据长度
-
-                if (dataLength > header.Length)
-                {
-                    var data = new byte[dataLength - header.Length];
-                    await ReadExactAsync(_stream!, data, token);
-                    response.AddRange(data);
-                }
-
-                return response.ToArray();
+                var data = new byte[dataLength - header.Length];
+                await ReadExactAsync(_stream!, data, token);
+                response.AddRange(data);
             }
+
+            return response.ToArray();
         }
 
         private async Task ReadExactAsync(NetworkStream stream, byte[] buffer, CancellationToken token)
@@ -164,11 +226,9 @@ namespace MitsubishiMC
             }
         }
 
-        public DriverParseResult ParseResponse(byte[] response)
+        private IDictionary<string, object> ParseMCResponse(byte[] response, ProtocolRequest request)
         {
-            // 解析MC协议响应
-            var tags = new string[] { "MitsubishiMC" };
-            var data = new Dictionary<string, object>();
+            var parsed = new Dictionary<string, object>();
 
             try
             {
@@ -182,66 +242,48 @@ namespace MitsubishiMC
                     var errorCode = reader.ReadUInt16();
                     if (errorCode != 0)
                     {
-                        data["Error"] = errorCode;
-                        return new DriverParseResult(tags, data);
+                        parsed["Error"] = errorCode;
+                        return parsed;
                     }
 
                     // 解析数据
-                    var mcRequest = MCRequest.Current;
-                    if (mcRequest != null && mcRequest.CommandCode == 0x0401) // Read data
+                    if (request.Action.ToLower() == "read")
                     {
+                        var count = request.Props.TryGetValue("Count", out var countStr) && ushort.TryParse(countStr, out var c) ? c : (ushort)1;
                         var values = new List<ushort>();
-                        for (int i = 0; i < mcRequest.Count; i++)
+                        
+                        for (int i = 0; i < count; i++)
                         {
                             values.Add(reader.ReadUInt16());
                         }
-                        data["Values"] = values;
+                        
+                        parsed["Values"] = values;
                     }
                 }
             }
             catch (Exception ex)
             {
-                _context.Logger.LogError(ex, "ParseResponse failed");
-                data["Error"] = ex.Message;
+                parsed["Error"] = ex.Message;
             }
 
-            return new DriverParseResult(tags, data);
+            return parsed;
         }
 
-        public Task<DriverHealth> CheckHealthAsync(CancellationToken token = default)
+        private void ChangeState(ConnectionState newState, string message)
         {
-            try
+            _state = newState;
+            ConnectionStatusChanged?.Invoke(this, new ConnectionStatusChangedEventArgs
             {
-                if (_client != null && _client.Connected)
-                {
-                    return Task.FromResult(new DriverHealth(true, "Connected to Mitsubishi MC server"));
-                }
-                return Task.FromResult(new DriverHealth(false, "Not connected to Mitsubishi MC server"));
-            }
-            catch (Exception ex)
-            {
-                return Task.FromResult(new DriverHealth(false, ex.Message));
-            }
+                ConnectionId = _connectionId,
+                State = newState,
+                Message = message
+            });
         }
 
         public void Dispose()
         {
             _stream?.Dispose();
             _client?.Dispose();
-            _context.Logger.LogInformation("Mitsubishi MC driver disposed");
         }
-    }
-
-    /// <summary>
-    /// MC协议请求模型
-    /// </summary>
-    public class MCRequest
-    {
-        public static MCRequest? Current { get; set; }
-        public ushort CommandCode { get; set; } = 0x0401; // Read data registers
-        public byte DataType { get; set; } = 0xA8;       // D register
-        public ushort StartAddress { get; set; } = 0;
-        public ushort Count { get; set; } = 1;
-        public byte[]? Data { get; set; }
     }
 }
