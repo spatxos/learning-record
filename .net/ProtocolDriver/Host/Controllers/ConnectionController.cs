@@ -134,7 +134,13 @@ namespace Host.Controllers
                 
                 _logger.LogInformation("Connection created with instance id: {InstanceId}", inst.ConnectionId);
                 
-                await _mgr.StartConnectionAsync(inst.ConnectionId);
+                bool isConnected = await _mgr.StartConnectionAsync(inst.ConnectionId);
+                
+                if (!isConnected)
+                {
+                    _logger.LogError("Failed to establish connection with instance id: {InstanceId}", inst.ConnectionId);
+                    return StatusCode(500, new { Message = "Failed to establish connection" });
+                }
                 
                 _logger.LogInformation("Connection started successfully with instance id: {InstanceId}", inst.ConnectionId);
                 
@@ -206,7 +212,7 @@ namespace Host.Controllers
                 {
                     ConnectionId = connection.ConnectionId,
                     PluginName = connection.PluginName,
-                    State = connection.Connection?.State.ToString(),
+                    State = _mgr.GetConnectionState(connection.ConnectionId).ToString(),
                     Settings = connection.Settings
                 });
             }

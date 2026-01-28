@@ -92,7 +92,7 @@ namespace Host.Controllers
                 }
 
                 // 加载插件
-                var plugin = await _pluginManager.LoadPluginAsync(filePath);
+                var plugin = await _pluginManager.LoadPluginAsync(filePath, protocolName);
                 if (plugin == null)
                     return StatusCode(500, "Failed to load plugin");
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OmronFINS
 {
-    public class OmronFINSDriver : IProtocolDriver
+    internal class OmronFINSDriver : IProtocolDriver
     {
         private DriverContext _context = null!;
         private TcpClient? _client;
@@ -259,7 +259,7 @@ namespace OmronFINS
     /// <summary>
     /// FINS协议请求模型
     /// </summary>
-    public class FINSRequest
+    internal class FINSRequest
     {
         public static FINSRequest? Current { get; set; }
         public byte Command { get; set; } = 0x01; // Memory area read

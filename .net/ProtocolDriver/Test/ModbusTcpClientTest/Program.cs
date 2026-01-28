@@ -10,320 +10,218 @@ namespace ModbusTcpClientTest
     {
         static async Task Main(string[] args)
         {
-            string ipAddress = "127.0.0.1";
-            int port = 5026;
-            byte unitId = 1;
+            Console.WriteLine("=== Modbus TCP驱动测试控制台 ===");
+            Console.WriteLine("测试目标: localhost:502");
+            Console.WriteLine("测试地址: 100");
+            Console.WriteLine("\n操作说明:");
+            Console.WriteLine("1. 启动此测试程序");
+            Console.WriteLine("2. 手动启动/关闭Modbus服务");
+            Console.WriteLine("3. 观察连接状态变化");
+            Console.WriteLine("4. 按任意键退出测试\n");
 
-            Console.WriteLine("=== Modbus TCP Client 测试程序 ===");
-            Console.WriteLine($"测试服务器地址: {ipAddress}:{port}");
-            Console.WriteLine();
-
-            // 创建并启动Modbus服务器模拟器
-            // Console.WriteLine("0. 正在启动Modbus服务器模拟器...");
-            // var server = new ModbusServerSimulator(port);
-            // server.StartAsync();
-            // // 等待服务器启动
-            // await Task.Delay(100);
-            // Console.WriteLine();
-
-            // 创建Modbus TCP驱动客户端实例
-            var client = new ModbusTcpDriverClient();
+            var modbusDriver = new Modbus.ModbusTcpDriverClient();
+            modbusDriver.IPAddress = "127.0.0.1";
+            modbusDriver.Port = "502";
+            bool isConnected = false;
+            int readAddress = 100;
 
             try
             {
-                // 连接到服务器
-                Console.WriteLine("1. 正在连接到Modbus TCP服务器...");
-                bool connected = await client.ConnectAsync(ipAddress, port, unitId);
-                if (connected)
-                {
-                    Console.WriteLine("✅ 连接成功！");
-                    Console.WriteLine();
-                }
-                else
-                {
-                    Console.WriteLine("❌ 连接失败！");
-                    return;
-                }
-
-                // 测试不同类型数据的读取
-                Console.WriteLine("2. 测试数据读取功能");
-                Console.WriteLine(new string('-', 50));
-
-                // 测试读取保持寄存器 (功能码0x03)
-                ushort startAddress = 100;
-                int count = 1;
-
-                Console.WriteLine($"\n测试读取保持寄存器: 地址={startAddress}, 数量={count}");
-                Console.WriteLine(new string('-', 40));
-
-                // 测试读取不同类型的数据
-                Console.WriteLine("\n读取 ushort 类型:");
+                // 尝试初始连接
+                Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] 正在尝试连接到Modbus服务器...");
                 try
                 {
-                    var readRequest = new ModbusReadRequest
+                    bool tcpConnected = await modbusDriver.ConnectAsync();
+                    if (tcpConnected)
                     {
-                        FunctionCode = 3,
-                        StartAddress = startAddress,
-                        Count = count
-                    };
-                    ushort[] uint16Values = await client.Read<ushort, ModbusReadRequest>(readRequest);
-                    if (uint16Values != null && uint16Values.Length > 0)
-                    {
-                        Console.WriteLine($"  ✅ 结果: {uint16Values[0]}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("  ❌ 读取结果为空");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"  ❌ 失败: {ex.Message}");
-                }
-
-                Console.WriteLine("\n读取 short 类型:");
-                try
-                {
-                    var readRequest = new ModbusReadRequest
-                    {
-                        FunctionCode = 3,
-                        StartAddress = startAddress,
-                        Count = count
-                    };
-                    short[] int16Values = await client.Read<short, ModbusReadRequest>(readRequest);
-                    if (int16Values != null && int16Values.Length > 0)
-                    {
-                        Console.WriteLine($"  ✅ 结果: {int16Values[0]}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("  ❌ 读取结果为空");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"  ❌ 失败: {ex.Message}");
-                }
-
-                Console.WriteLine("\n读取 uint 类型:");
-                try
-                {
-                    var readRequest = new ModbusReadRequest
-                    {
-                        FunctionCode = 3,
-                        StartAddress = startAddress,
-                        Count = count
-                    };
-                    uint[] uint32Values = await client.Read<uint, ModbusReadRequest>(readRequest);
-                    if (uint32Values != null && uint32Values.Length > 0)
-                    {
-                        Console.WriteLine($"  ✅ 结果: {uint32Values[0]}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("  ❌ 读取结果为空");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"  ❌ 失败: {ex.Message}");
-                }
-
-                Console.WriteLine("\n读取 int 类型:");
-                try
-                {
-                    var readRequest = new ModbusReadRequest
-                    {
-                        FunctionCode = 3,
-                        StartAddress = startAddress,
-                        Count = count
-                    };
-                    int[] int32Values = await client.Read<int, ModbusReadRequest>(readRequest);
-                    if (int32Values != null && int32Values.Length > 0)
-                    {
-                        Console.WriteLine($"  ✅ 结果: {int32Values[0]}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("  ❌ 读取结果为空");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"  ❌ 失败: {ex.Message}");
-                }
-
-                Console.WriteLine("\n读取 float 类型:");
-                try
-                {
-                    var readRequest = new ModbusReadRequest
-                    {
-                        FunctionCode = 3,
-                        StartAddress = startAddress,
-                        Count = count
-                    };
-                    float[] floatValues = await client.Read<float, ModbusReadRequest>(readRequest);
-                    if (floatValues != null && floatValues.Length > 0)
-                    {
-                        Console.WriteLine($"  ✅ 结果: {floatValues[0]}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("  ❌ 读取结果为空");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"  ❌ 失败: {ex.Message}");
-                }
-
-                Console.WriteLine("\n读取 double 类型:");
-                try
-                {
-                    var readRequest = new ModbusReadRequest
-                    {
-                        FunctionCode = 3,
-                        StartAddress = startAddress,
-                        Count = count
-                    };
-                    double[] doubleValues = await client.Read<double, ModbusReadRequest>(readRequest);
-                    if (doubleValues != null && doubleValues.Length > 0)
-                    {
-                        Console.WriteLine($"  ✅ 结果: {doubleValues[0]}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("  ❌ 读取结果为空");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"  ❌ 失败: {ex.Message}");
-                }
-
-                // 测试写入功能
-                Console.WriteLine("\n" + new string('=', 50));
-                Console.WriteLine("3. 测试数据写入功能");
-                Console.WriteLine(new string('-', 50));
-
-                Console.WriteLine($"\n测试写入保持寄存器: 地址={startAddress}");
-                Console.WriteLine(new string('-', 40));
-
-                // 测试写入不同类型的数据
-                ushort writeValue = 12345;
-                Console.WriteLine($"\n写入 ushort 类型值: {writeValue}");
-                try
-                {
-                    // 将ushort转换为字节数组（大端序）
-                    byte[] writeData = new byte[2];
-                    writeData[0] = (byte)(writeValue >> 8);
-                    writeData[1] = (byte)(writeValue & 0xFF);
-
-                    var writeRequest = new ModbusWriteRequest
-                    {
-                        FunctionCode = 6,
-                        StartAddress = startAddress,
-                        Data = writeData
-                    };
-
-                    await client.Write(writeRequest);
-                    Console.WriteLine("  ✅ 写入成功！");
-
-                    // 验证写入结果
-                    var readRequest = new ModbusReadRequest
-                    {
-                        FunctionCode = 3,
-                        StartAddress = startAddress,
-                        Count = count
-                    };
-                    ushort[] readBack = await client.Read<ushort, ModbusReadRequest>(readRequest);
-                    if (readBack != null && readBack.Length > 0)
-                    {
-                        Console.WriteLine($"  ✅ 验证读取结果: {readBack[0]} ({(readBack[0] == writeValue ? "一致" : "不一致")})");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"  ❌ 失败: {ex.Message}");
-                }
-
-                // 测试写入多个寄存器
-                ushort[] writeValues = { 6789, 9876 };
-                Console.WriteLine($"\n写入多个 ushort 类型值: {string.Join(", ", writeValues)}");
-                try
-                {
-                    // 将ushort数组转换为字节数组（大端序）
-                    byte[] writeData = new byte[writeValues.Length * 2];
-                    for (int i = 0; i < writeValues.Length; i++)
-                    {
-                        writeData[i * 2] = (byte)(writeValues[i] >> 8);
-                        writeData[i * 2 + 1] = (byte)(writeValues[i] & 0xFF);
-                    }
-
-                    var writeRequest = new ModbusWriteRequest
-                    {
-                        FunctionCode = 16,
-                        StartAddress = startAddress,
-                        Data = writeData
-                    };
-
-                    await client.Write(writeRequest);
-                    Console.WriteLine("  ✅ 批量写入成功！");
-
-                    // 验证写入结果
-                    var readRequest = new ModbusReadRequest
-                    {
-                        FunctionCode = 3,
-                        StartAddress = startAddress,
-                        Count = writeValues.Length
-                    };
-                    ushort[] readBackValues = await client.Read<ushort, ModbusReadRequest>(readRequest);
-                    Console.WriteLine("  验证读取结果:");
-                    if (readBackValues != null && readBackValues.Length == writeValues.Length)
-                    {
-                        for (int i = 0; i < writeValues.Length; i++)
+                        Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] 🔄 TCP连接建立成功，正在验证Modbus通信...");
+                        // 测试一次Modbus通信以确保连接完全正常
+                        var testRead = await modbusDriver.ReadBoolAsync(readAddress.ToString());
+                        if (testRead.IsSuccess)
                         {
-                            Console.WriteLine($"    地址 {startAddress + i}: {readBackValues[i]} ({(readBackValues[i] == writeValues[i] ? "一致" : "不一致")})");
+                            isConnected = true;
+                            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ✅ 初始连接成功!");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ⚠️ TCP连接成功，但Modbus通信失败: {testRead.Message}");
+                            isConnected = false;
                         }
                     }
                     else
                     {
-                        Console.WriteLine("  ❌ 验证读取结果失败");
+                        Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ⚠️ 初始连接失败");
+                        isConnected = false;
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"  ❌ 失败: {ex.Message}");
+                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ⚠️ 初始连接失败: {ex.Message}");
+                    isConnected = false;
                 }
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"❌ 测试失败: {ex.Message}");
-                Console.WriteLine(ex.StackTrace);
+                // 持续监控连接状态并测试读写
+                Console.WriteLine("\n=== 开始持续监控 (按任意键停止) ===");
+                while (!Console.KeyAvailable)
+                {
+                    try
+                    {
+                        // 测试读取功能
+                        Console.WriteLine($"\n[{DateTime.Now:HH:mm:ss}] 尝试读取地址 {readAddress} 的数据...");
+                        
+                        bool currentReadSuccess = false;
+                        try
+                        {
+                            // 使用IReadWriteNet接口的ReadBoolAsync方法
+                            var readResult = await modbusDriver.ReadInt32Async(readAddress.ToString());
+                            
+                            if (readResult.IsSuccess)
+                            {
+                                currentReadSuccess = true;
+                                Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ✅ 读取成功: {readResult.Content}");
+                                
+                                // 如果之前是断开状态，现在重新连接成功
+                                if (!isConnected)
+                                {
+                                    isConnected = true;
+                                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] 🟢 连接状态变更: 已连接");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ❌ 读取失败: {readResult.Message}");
+                                
+                                // 如果之前是连接状态，现在断开了
+                                if (isConnected)
+                                {
+                                    isConnected = false;
+                                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] 🔴 连接状态变更: 已断开  {modbusDriver.IsConnected}");
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ❌ 读取过程中发生异常: {ex.Message}");
+                            
+                            // 如果之前是连接状态，现在断开了
+                            if (isConnected)
+                            {
+                                isConnected = false;
+                                Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] 🔴 连接状态变更: 已断开");
+                            }
+                        }
+
+                        // 测试写入功能（可选，注释掉可仅测试读取）
+                        if (currentReadSuccess) // 只有在读取成功的情况下才尝试写入
+                        {
+                            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] 尝试写入地址 {readAddress} 的数据...");
+                            int testValue = DateTime.Now.Second;
+                            try
+                            {
+                                var writeResult = await modbusDriver.WriteAsync(readAddress.ToString(), testValue);
+                                
+                                if (writeResult.IsSuccess)
+                                {
+                                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ✅ 写入成功: 地址 {readAddress} = {testValue}");
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ❌ 写入失败: {writeResult.Message}");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ❌ 写入过程中发生异常: {ex.Message}");
+                                
+                                // 如果之前是连接状态，现在断开了
+                                if (isConnected)
+                                {
+                                    isConnected = false;
+                                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] 🔴 连接状态变更: 已断开 {modbusDriver.IsConnected}");
+                                }
+                            }
+                        }
+
+                        // 如果连接已断开，尝试重新连接
+                        if (!isConnected)
+                        {
+                            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] 🔄 正在尝试重新连接...");
+                            try
+                            {
+                                bool tcpReconnected = await modbusDriver.ConnectAsync();
+                                if (tcpReconnected)
+                                {
+                                    // 测试Modbus通信以验证重新连接是否成功
+                                    var reconnectTest = await modbusDriver.ReadBoolAsync(readAddress.ToString());
+                                    if (reconnectTest.IsSuccess)
+                                    {
+                                        isConnected = true;
+                                        Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ✅ 重新连接成功!");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ⚠️ TCP重连成功，但Modbus通信失败: {reconnectTest.Message}");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ❌ TCP重连失败");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ❌ 重新连接失败: {ex.Message}");
+                            }
+                        }
+
+                        // 等待一段时间后再次测试
+                        await Task.Delay(3000);
+                    }
+                    catch (Exception ex)
+                    {
+                        // 如果之前是连接状态，现在断开了
+                        if (isConnected)
+                        {
+                            isConnected = false;
+                            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] 🔴 连接状态变更: 已断开 {modbusDriver.IsConnected}");
+                        }
+                        Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ⚠️ 通信异常: {ex.Message}");
+                        
+                        // 等待一段时间后尝试重新连接
+                        await Task.Delay(5000);
+                        try
+                        {
+                            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] 尝试重新连接...");
+                            await modbusDriver.ConnectAsync();
+                            isConnected = true;
+                            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ✅ 重新连接成功! {modbusDriver.IsConnected}");
+                        }
+                        catch (Exception connectEx)
+                        {
+                            Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] ❌ 重新连接失败: {connectEx.Message}");
+                        }
+                    }
+                }
+
+                // 用户按下了键，退出循环
+                Console.WriteLine("\n=== 测试结束 ===");
+
             }
             finally
             {
-                // 断开连接
-                Console.WriteLine("\n" + new string('=', 50));
-                Console.WriteLine("4. 断开连接");
+                // 关闭连接
                 try
                 {
-                    bool disconnected = await client.DisconnectAsync();
-                    Console.WriteLine(disconnected ? "✅ 断开连接成功！" : "❌ 断开连接失败！");
+                    await modbusDriver.DisconnectAsync();
+                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] 已关闭连接");
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"❌ 断开连接失败: {ex.Message}");
+                    Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] 关闭连接时发生错误: {ex.Message}");
                 }
-
-                // 停止Modbus服务器模拟器
-                // Console.WriteLine("\n5. 停止Modbus服务器模拟器...");
-                // await server.StopAsync();
             }
 
-            Console.WriteLine("\n" + new string('=', 50));
-            Console.WriteLine("测试完成，按任意键退出...");
+            Console.WriteLine("按任意键退出...");
             Console.ReadKey();
         }
     }

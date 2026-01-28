@@ -1,0 +1,3 @@
+D:/Project/github/learning-record/c++/modbustcp/build/CMakeFiles/modbus_tcp.dir
+D:/Project/github/learning-record/c++/modbustcp/build/CMakeFiles/ALL_BUILD.dir
+D:/Project/github/learning-record/c++/modbustcp/build/CMakeFiles/ZERO_CHECK.dir

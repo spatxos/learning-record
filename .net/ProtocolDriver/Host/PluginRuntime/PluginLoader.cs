@@ -13,7 +13,7 @@ namespace Host.PluginRuntime
         public string Name { get; init; } = default!;
         public string Path { get; init; } = default!;
         public AssemblyLoadContext? LoadContext { get; set; }
-        public IProtocolDriver? DriverInstance { get; set; }
+        public IDeviceCommunication? DeviceCommunicationInstance { get; set; }
         public WeakReference? WeakContextRef { get; set; }
     }
 
@@ -40,15 +40,15 @@ namespace Host.PluginRuntime
 
             var alc = new AssemblyLoadContext(Guid.NewGuid().ToString(), isCollectible: true);
             var asm = alc.LoadFromAssemblyPath(full);
-            var driverType = asm.GetTypes().FirstOrDefault(t => typeof(IProtocolDriver).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract);
-            if (driverType == null)
+            var clientType = asm.GetTypes().FirstOrDefault(t => typeof(IDeviceCommunication).IsAssignableFrom(t) && !t.IsInterface && !t.IsAbstract);
+            if (clientType == null)
             {
                 alc.Unload();
                 return null;
             }
 
-            var inst = (IProtocolDriver)Activator.CreateInstance(driverType)!;
-            var handle = new PluginHandle { Name = name, Path = full, LoadContext = alc, DriverInstance = inst, WeakContextRef = new WeakReference(alc) };
+            var inst = (IDeviceCommunication)Activator.CreateInstance(clientType)!;
+            var handle = new PluginHandle { Name = name, Path = full, LoadContext = alc, DeviceCommunicationInstance = inst, WeakContextRef = new WeakReference(alc) };
             _handles[name] = handle;
             return handle;
         }
@@ -58,7 +58,7 @@ namespace Host.PluginRuntime
             if (!_handles.TryRemove(name, out var handle)) return;
             try
             {
-                handle.DriverInstance = null;
+                handle.DeviceCommunicationInstance = null;
                 handle.LoadContext?.Unload();
             }
             catch { /* log */ }

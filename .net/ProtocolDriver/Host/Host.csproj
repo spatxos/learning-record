@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <Description>协议插件化框架主程序</Description>
     <Company>ProtocolDriver</Company>
@@ -22,6 +22,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Host.SDK\Host.SDK.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 将plugins文件夹复制到输出目录 -->
+    <Content Include="plugins\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

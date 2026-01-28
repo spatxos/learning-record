@@ -23,7 +23,7 @@ namespace Host
         public string Version { get; set; } = string.Empty;
         public string AssemblyPath { get; set; } = string.Empty;
         public AssemblyLoadContext LoadContext { get; set; } = null!;
-        public IProtocolDriver Driver { get; set; } = null!;
+        public IDeviceCommunication? DeviceCommunication { get; set; } = null!;
         public PluginStatus Status { get; set; } = PluginStatus.Loading;
     }
 
@@ -63,7 +63,7 @@ namespace Host
             _config = config;
             _transportFactory = transportFactory;
             _hostApi = hostApi;
-            _pluginsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "plugins");
+            _pluginsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Plugins");
         }
 
         /// <summary>
@@ -72,14 +72,23 @@ namespace Host
         /// <returns>任务</returns>
         public async Task InitializeAsync()
         {
+            _logger.LogInformation("PluginManager.InitializeAsync started");
+            
+            // 记录当前工作目录和插件目录
+            _logger.LogInformation("Current working directory: {Directory}", Directory.GetCurrentDirectory());
+            _logger.LogInformation("Plugins directory: {Directory}", _pluginsDirectory);
+
             // 创建插件目录
             Directory.CreateDirectory(_pluginsDirectory);
+            _logger.LogInformation("Plugin directory created (if not existed)");
 
             // 扫描并加载插件
             await ScanAndLoadPluginsAsync();
 
             // 启动文件系统监听器
             StartFileSystemWatcher();
+            
+            _logger.LogInformation("PluginManager.InitializeAsync completed");
         }
 
         /// <summary>
@@ -89,37 +98,70 @@ namespace Host
         private async Task ScanAndLoadPluginsAsync()
         {
             _logger.LogInformation("Scanning plugins directory: {Directory}", _pluginsDirectory);
+            _logger.LogInformation("Current working directory: {Directory}", Directory.GetCurrentDirectory());
 
             if (!Directory.Exists(_pluginsDirectory))
+            {
+                _logger.LogError("Plugins directory does not exist: {Directory}", _pluginsDirectory);
                 return;
+            }
+
+            // 列出插件目录中的所有文件和子目录
+            var dirContents = Directory.GetFileSystemEntries(_pluginsDirectory);
+            _logger.LogInformation("Plugins directory contents: {Count} items", dirContents.Length);
+            foreach (var item in dirContents)
+            {
+                var attr = File.GetAttributes(item);
+                _logger.LogInformation("{ItemType}: {Item}", attr.HasFlag(FileAttributes.Directory) ? "Directory" : "File", item);
+            }
 
             // 扫描所有协议目录
             var protocolDirectories = Directory.GetDirectories(_pluginsDirectory);
+            _logger.LogInformation("Found {Count} protocol directories", protocolDirectories.Length);
             foreach (var protocolDir in protocolDirectories)
             {
                 var protocolName = Path.GetFileName(protocolDir);
+                _logger.LogInformation("Processing protocol: {ProtocolName} from directory: {Directory}", protocolName, protocolDir);
 
                 // 扫描版本目录，选择最新版本
                 var versionDirectories = Directory.GetDirectories(protocolDir);
+                _logger.LogInformation("Found {Count} version directories for {ProtocolName}", versionDirectories.Length, protocolName);
                 if (!versionDirectories.Any())
+                {
+                    _logger.LogWarning("No version directories found for {ProtocolName}", protocolName);
                     continue;
+                }
 
                 // 简单版本比较，实际应用中可以使用更复杂的版本解析
                 var latestVersionDir = versionDirectories.OrderByDescending(Path.GetFileName).First();
+                _logger.LogInformation("Selected latest version directory: {Directory}", latestVersionDir);
 
                 // 查找DLL文件
                 var dllFiles = Directory.GetFiles(latestVersionDir, "*.dll");
+                _logger.LogInformation("Found {Count} DLL files in {Directory}", dllFiles.Length, latestVersionDir);
                 if (!dllFiles.Any())
+                {
+                    _logger.LogWarning("No DLL files found in {Directory}", latestVersionDir);
                     continue;
+                }
 
                 var dllPath = dllFiles.First();
+                _logger.LogInformation("Loading plugin DLL: {Path}", dllPath);
                 try
                 {
-                    await LoadPluginAsync(dllPath);
+                    var pluginInfo = await LoadPluginAsync(dllPath, protocolName);
+                    if (pluginInfo != null)
+                    {
+                        _logger.LogInformation("Successfully loaded plugin: {ProtocolName} v{Version}", pluginInfo.ProtocolName, pluginInfo.Version);
+                    }
+                    else
+                    {
+                        _logger.LogError("Failed to load plugin: {Path}", dllPath);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "Failed to load plugin: {Path}", dllPath);
+                    _logger.LogError(ex, "Exception when loading plugin: {Path}", dllPath);
                 }
             }
         }
@@ -129,7 +171,7 @@ namespace Host
         /// </summary>
         /// <param name="assemblyPath">程序集路径</param>
         /// <returns>任务</returns>
-        public async Task<PluginInfo?> LoadPluginAsync(string assemblyPath)
+        public async Task<PluginInfo?> LoadPluginAsync(string assemblyPath, string protocolName)
         {
             _logger.LogInformation("Loading plugin: {Path}", assemblyPath);
 
@@ -142,38 +184,60 @@ namespace Host
                 // 加载程序集
                 var assembly = loadContext.LoadFromAssemblyPath(assemblyPath);
 
-                // 查找实现了IProtocolDriver的类型
-                var driverType = assembly.ExportedTypes.FirstOrDefault(t => 
-                    typeof(IProtocolDriver).IsAssignableFrom(t) && !t.IsAbstract);
-
-                if (driverType == null)
+                // 查找并创建IDeviceCommunication实例
+                var clientType = assembly.ExportedTypes.FirstOrDefault(t => 
+                    typeof(IDeviceCommunication).IsAssignableFrom(t) && !t.IsAbstract);
+                if (clientType == null)
                 {
-                    _logger.LogError("No IProtocolDriver implementation found in: {Path}", assemblyPath);
+                    _logger.LogError("No IDeviceCommunication implementation found in: {Path}", assemblyPath);
                     loadContext.Unload();
                     return null;
                 }
 
-                // 创建驱动实例
-                var driver = (IProtocolDriver)Activator.CreateInstance(driverType)!;
+                var deviceCommunication = (IDeviceCommunication)Activator.CreateInstance(clientType)!;
+
+                // 获取版本信息
+                string version = "1.0.0"; // 默认版本
+                try
+                {
+                    // 从程序集版本信息获取版本号
+                    var assemblyVersion = assembly.GetName().Version;
+                    if (assemblyVersion != null)
+                    {
+                        version = assemblyVersion.ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogWarning(ex, "Failed to get assembly version for: {Path}", assemblyPath);
+                }
 
                 // 创建插件信息
                 var pluginInfo = new PluginInfo
                 {
-                    ProtocolName = driver.Metadata.ProtocolName,
-                    Version = driver.Metadata.Version,
+                    ProtocolName = protocolName, // 使用目录名称作为协议名称
+                    Version = version, // 使用程序集版本
                     AssemblyPath = assemblyPath,
                     LoadContext = loadContext,
-                    Driver = driver,
+                    DeviceCommunication = deviceCommunication,
                     Status = PluginStatus.Running
                 };
-
-                // 驱动上下文不再需要，新接口没有InitializeAsync方法
 
                 // 添加到插件字典
                 _plugins[pluginInfo.Id] = pluginInfo;
 
-                _logger.LogInformation("Plugin loaded successfully: {ProtocolName} v{Version}", 
-                    pluginInfo.ProtocolName, pluginInfo.Version);
+                _logger.LogInformation("Plugin loaded successfully: {ProtocolName} v{Version}, PluginId: {PluginId}", 
+                    pluginInfo.ProtocolName, pluginInfo.Version, pluginInfo.Id);
+                
+                // 满足async方法要求
+                await Task.CompletedTask;
+                
+                // 记录所有已加载插件的详细信息
+                _logger.LogInformation("Current loaded plugins count: {Count}", _plugins.Count);
+                foreach (var p in _plugins.Values)
+                {
+                    _logger.LogInformation("  - Plugin: {ProtocolName} v{Version}, Id: {PluginId}", p.ProtocolName, p.Version, p.Id);
+                }
 
                 return pluginInfo;
             }
@@ -212,7 +276,7 @@ namespace Host
                 pluginInfo.Status = PluginStatus.Unloading;
 
                 // 释放驱动资源，如果实现了IDisposable接口
-                if (pluginInfo.Driver is IDisposable disposableDriver)
+                if (pluginInfo.DeviceCommunication is IDisposable disposableDriver)
                 {
                     disposableDriver.Dispose();
                 }
@@ -251,8 +315,12 @@ namespace Host
         /// <returns>任务</returns>
         public async Task<PluginInfo?> ReloadPluginAsync(string newAssemblyPath)
         {
+            // 从路径中提取协议名称（假设路径格式为 .../Plugins/ProtocolName/Version/...）
+            string protocolName = Path.GetDirectoryName(Path.GetDirectoryName(newAssemblyPath))!;
+            protocolName = Path.GetFileName(protocolName);
+
             // 加载新插件
-            var newPlugin = await LoadPluginAsync(newAssemblyPath);
+            var newPlugin = await LoadPluginAsync(newAssemblyPath, protocolName);
             if (newPlugin == null)
                 return null;
 

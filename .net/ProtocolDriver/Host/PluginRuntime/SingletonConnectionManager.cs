@@ -129,8 +129,14 @@ namespace Host.PluginRuntime
                 }
 
                 // 创建并启动连接
-                var connectionInstance = await _connectionManager.CreateConnectionAsync(config.PluginName, settings);
-                await _connectionManager.StartConnectionAsync(connectionInstance.ConnectionId);
+                var connectionInstance = await _connectionManager.CreateConnectionAsync(config.ProtocolName, settings);
+                bool isConnected = await _connectionManager.StartConnectionAsync(connectionInstance.ConnectionId);
+
+                // 检查连接是否成功
+                if (!isConnected)
+                {
+                    throw new Exception("Connection failed to establish");
+                }
 
                 // 更新连接实例信息
                 var instanceInfo = new ConnectionInstanceInfo
@@ -280,18 +286,8 @@ namespace Host.PluginRuntime
         {
             try
             {
-                // 获取连接实例
-                var connection = _connectionManager.GetConnection(connectionId);
-                if (connection == null)
-                {
-                    _logger.LogWarning("Connection {Id} not found", connectionId);
-                    return false;
-                }
-                
-                // 使用心跳机制检查连接是否有效
-                connection.SetHeartbeatPoint("0", "Coil"); // 设置默认心跳点位
-                var task = connection.CheckHeartbeatAsync(CancellationToken.None);
-                return task.Wait(2000); // 心跳检查超时时间为2秒
+                // 直接使用ConnectionManager的IsConnectionValid方法
+                return _connectionManager.GetConnectionState(connectionId) == ConnectionState.Connected;
             }
             catch (Exception ex)
             {

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Project\github\learning-record\c++\modbustcp\build\CMakeFiles\e58b38787bb2eb7d86a0a849ab28adff\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E466974D-0D7F-351C-8A28-829A982C632B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

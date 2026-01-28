@@ -212,23 +212,23 @@ namespace Host.Storage
     
     public class ConnectionInfo
     {
-        public string Id { get; set; }
-        public string PluginName { get; set; }
-        public string ProtocolName { get; set; }
-        public string Host { get; set; }
+        public string? Id { get; set; }
+        public string? PluginName { get; set; }
+        public string? ProtocolName { get; set; }
+        public string? Host { get; set; }
         public int Port { get; set; }
-        public string Parameters { get; set; }
-        public string CreatedTime { get; set; }
+        public string? Parameters { get; set; }
+        public string? CreatedTime { get; set; }
     }
     
     public class ConnectionConfig
     {
         public int Id { get; set; }
-        public string PluginName { get; set; }
-        public string ProtocolName { get; set; }
-        public string Host { get; set; }
+        public string? PluginName { get; set; }
+        public string? ProtocolName { get; set; }
+        public string? Host { get; set; }
         public int Port { get; set; }
-        public string Parameters { get; set; }
+        public string? Parameters { get; set; }
         public bool IsEnabled { get; set; }
         public int RetryInterval { get; set; }
     }

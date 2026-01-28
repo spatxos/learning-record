@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace S7
 {
-    public class S7Driver : IProtocolDriver
+    internal class S7Driver : IProtocolDriver
     {
         private DriverContext _context = null!;
         private TcpClient? _client;
